@@ -1,0 +1,2 @@
+operations = []
+pointer = 1

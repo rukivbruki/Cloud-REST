@@ -1,0 +1,5 @@
+Flask
+Flask-RESTful
+gunicorn
+requests
+google-cloud-datastore
