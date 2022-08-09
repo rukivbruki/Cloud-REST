@@ -1,6 +1,6 @@
 import requests
 
-BASE = "http://127.0.0.1:8080/"
+BASE = "https://fstp-358817.uw.r.appspot.com/undo"
 
 GET = "name=ivan"
 NUMEQUALTO = "numequalto?value=32"
@@ -10,7 +10,7 @@ UNDO = '/undo'
 REDO = '/redo'
 END = "/end"
 
-response = requests.get(BASE + SET)
+response = requests.get(BASE)
 
 print(response.text)
 

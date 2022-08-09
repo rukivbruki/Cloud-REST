@@ -1,6 +1,6 @@
 import shared
 from settings import datastore_client
-from helpers.filter import name_filter
+from helpers.getter import get_name
 
 
 def call_undo():
@@ -19,7 +19,7 @@ def call_undo():
             datastore_client.put_multi(prev_entity["task"])
         shared.pointer += 1
 
-        return f"{curr_name} = {name_filter(curr_name)}"
+        return f"{curr_name} = {get_name(curr_name)}"
 
     elif command == "unset":
         print(curr_entity["task"])

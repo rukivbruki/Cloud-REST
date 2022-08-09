@@ -1,6 +1,6 @@
 import shared
 from settings import datastore_client
-from helpers.filter import name_filter
+from helpers.getter import get_name
 
 
 def call_redo():
@@ -16,7 +16,7 @@ def call_redo():
 
     if command == "unset":
         datastore_client.delete(curr_entity["task"][0])
-        return f"{curr_name} = {name_filter(curr_name)}"
+        return f"{curr_name} = {get_name(curr_name)}"
     elif command == "set":
         datastore_client.put_multi(curr_entity["task"])
         return f"{curr_name} = {curr_value}"

@@ -1,5 +1,5 @@
-from helpers.filter import name_filter
+from helpers.getter import get_name
 
 
 def call_get(name):
-    return name_filter(name)
+    return get_name(name)
