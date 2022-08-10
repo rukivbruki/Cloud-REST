@@ -5,6 +5,11 @@ from models import call_numequalto, call_set, call_unset, call_undo, call_redo, 
 app = Flask(__name__)
 
 
+@app.route('/', methods=['GET'])
+def hello():
+    return 'Hello'
+
+
 @app.route('/get', methods=['GET'])
 def get():
     name = request.args.get('name')
@@ -52,5 +57,6 @@ def end():
 
 
 if __name__ == '__main__':
-    init_stack()
-    app.run(host='127.0.0.1', port=8080, debug=True)
+    def app():
+        init_stack()
+        app.run(host='127.0.0.1', port=8080, debug=True)

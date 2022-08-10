@@ -12,13 +12,13 @@ def call_redo():
         return "NO COMMANDS"
 
     curr_entity = operations[pointer]
-    curr_name = curr_entity["task"][0]["name"]
-    curr_value = curr_entity["task"][0]["value"]
+    curr_name = curr_entity["task"]["name"]
+    curr_value = curr_entity["task"]["value"]
     command = curr_entity["command"]
 
     if command == "unset":
-        datastore_client.delete(curr_entity["task"][0])
+        datastore_client.delete(curr_entity["task"])
         return f"{curr_name} = {get_name(curr_name)}"
     elif command == "set":
-        datastore_client.put_multi(curr_entity["task"])
+        datastore_client.put(curr_entity["task"])
         return f"{curr_name} = {curr_value}"
