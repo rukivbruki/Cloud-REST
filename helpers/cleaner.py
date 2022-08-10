@@ -1,9 +1,12 @@
-import shared
+from helpers import update_stack, get_stack
 
 
 def clean_stack():
+    operations = get_stack('operations')
+    pointer = get_stack('pointer')
     first_task_index = 2
-    if shared.pointer > 1:
-        del shared.operations[first_task_index:shared.pointer + 1]
+    if pointer > 1:
+        del operations[first_task_index:pointer + 1]
+        update_stack('operations', operations)
 
-    shared.pointer = 1
+    update_stack('pointer', 1)

@@ -1,11 +1,11 @@
-import shared
+from helpers import update_stack
 from settings import datastore_client
 
 
 def call_end():
     fetch_limit = 100
     entities = True
-    shared.operations = []
+    update_stack("operations", [])
 
     while entities:
         query = datastore_client.query(kind='Task')

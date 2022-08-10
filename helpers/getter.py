@@ -12,3 +12,11 @@ def get_name(name):
         return dict(task)["value"]
     else:
         return f"{task}"
+
+
+def get_stack(name):
+    key = datastore_client.key("Stack", zlib.crc32(bytes(name, 'ascii')))
+
+    task = datastore_client.get(key)
+
+    return dict(task)['value']

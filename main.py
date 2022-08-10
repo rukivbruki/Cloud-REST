@@ -1,4 +1,5 @@
 from flask import Flask, request
+from helpers import init_stack
 from models import call_numequalto, call_set, call_unset, call_undo, call_redo, call_end, call_get
 
 app = Flask(__name__)
@@ -51,4 +52,5 @@ def end():
 
 
 if __name__ == '__main__':
+    init_stack()
     app.run(host='127.0.0.1', port=8080, debug=True)

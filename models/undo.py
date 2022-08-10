@@ -1,29 +1,30 @@
-import shared
 from settings import datastore_client
-from helpers.getter import get_name
+from helpers import get_name, update_stack, get_stack
 
 
 def call_undo():
-    if shared.pointer > len(shared.operations) - 2:
+    pointer = get_stack('pointer')
+    operations = get_stack('operations')
+
+    if pointer > len(operations) - 2:
         return "NO COMMANDS"
 
-    curr_entity = shared.operations[shared.pointer]
+    curr_entity = operations[pointer]
     curr_name = curr_entity["task"][0]["name"]
     curr_value = curr_entity["task"][0]["value"]
-    prev_entity = shared.operations[shared.pointer + 1]
+    prev_entity = operations[pointer + 1]
     command = curr_entity["command"]
 
     if command == "set":
         datastore_client.delete(curr_entity["task"][0])
-        if shared.pointer < len(shared.operations) - 2:
+        if pointer < len(operations) - 2:
             datastore_client.put_multi(prev_entity["task"])
-        shared.pointer += 1
+        update_stack('pointer', pointer + 1)
 
         return f"{curr_name} = {get_name(curr_name)}"
 
     elif command == "unset":
-        print(curr_entity["task"])
         datastore_client.put_multi(curr_entity["task"])
-        shared.pointer += 1
+        update_stack('pointer', pointer + 1)
 
         return f"{curr_name} = {curr_value}"

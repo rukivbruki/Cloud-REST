@@ -1,14 +1,16 @@
+import zlib
+
 from helpers import prefill_stack, clean_stack
 from settings import datastore_client
 
 
 def call_unset(name, operations_name):
-    query = datastore_client.query(kind="Task")
-    query.add_filter("name", "=", name)
-    results = list(query.fetch())
+    key = datastore_client.key("Task", zlib.crc32(bytes(name, 'ascii')))
 
-    prefill_stack(operations_name, results)
+    task = datastore_client.get(key)
+
+    prefill_stack(operations_name, task)
     clean_stack()
-    datastore_client.delete_multi(results)
+    datastore_client.delete(task)
 
     return "None"

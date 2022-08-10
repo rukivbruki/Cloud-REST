@@ -1,15 +1,17 @@
-import shared
+from helpers import update_stack
 from settings import datastore_client
-from helpers.getter import get_name
+from helpers.getter import get_name, get_stack
 
 
 def call_redo():
-    shared.pointer -= 1
+    pointer = get_stack('pointer') - 1
+    operations = get_stack('operations')
+    update_stack('pointer', pointer)
 
-    if shared.pointer < 0:
+    if pointer < 0:
         return "NO COMMANDS"
 
-    curr_entity = shared.operations[shared.pointer]
+    curr_entity = operations[pointer]
     curr_name = curr_entity["task"][0]["name"]
     curr_value = curr_entity["task"][0]["value"]
     command = curr_entity["command"]
