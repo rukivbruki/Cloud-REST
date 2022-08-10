@@ -57,6 +57,9 @@ def end():
 
 
 if __name__ == '__main__':
-    def app():
-        init_stack()
-        app.run(host='127.0.0.1', port=8080, debug=True)
+    init_stack()
+    app.run(host='127.0.0.1', port=8080, debug=True)
+
+    # def app():
+    #     init_stack()
+    #     app.run(host='127.0.0.1', port=8080, debug=True)
