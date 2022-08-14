@@ -1,22 +1,22 @@
-google cloud link: https://fstp-358817.uw.r.appspot.com/end
+**Link to progect:** google cloud link: https://fstp-358817.uw.r.appspot.com/end
 
-#Python REST API using Flask, Google App Engine and Google Datastore
+# Python REST API using Flask, Google App Engine and Google Datastore
 
-##Description:
+## Description:
 
 This challenge has 2 tasks:
 
 Getting to know the Google App Engine & creating a basic “Hello, World” app (following the instructions).
 Creating a very simple Database app which has a limited command set using the Google App Engine.
 
-###Task I
+### Task I
 Create Hello World app using the instructions below (Please use Standard Environment with Python 3)
 https://cloud.google.com/appengine/docs/standard/python3/quickstart
 
 Make sure the app is working, send us back all the code you’ve written & a full URL link to your application (http://_
 your-app-id.appspot.com/).
 
-###Task II
+### Task II
 Your task is to create a very simple database using the Google App Engine.
 
 Your app will receive commands over HTTP requests from the network, all the commands are going to be handled one request
