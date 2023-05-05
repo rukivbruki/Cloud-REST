@@ -1,5 +1,3 @@
-**Link to progect:** google cloud link: https://fstp-358817.uw.r.appspot.com/end
-
 # Python REST API using Flask, Google App Engine and Google Datastore
 
 ## Description:
